@@ -7,7 +7,7 @@ const SPEED = 150.0
 
 var is_channeling = false
 var interaction_time = 0.0
-var channel_time = 1.0
+var channel_time = 0.5
 var current_target = null
 var interact_list = []
 
