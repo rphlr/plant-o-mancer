@@ -1,12 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://o0qumori6aa2"]
 
 [ext_resource type="PackedScene" uid="uid://l6rxw8pg53wu" path="res://smuravye/Player/player_druid.tscn" id="1_fln65"]
-[ext_resource type="PackedScene" uid="uid://cbh3fwx6nnblm" path="res://smuravye/interactable_objects.tscn" id="2_84hwn"]
+[ext_resource type="PackedScene" uid="uid://dheke6hrb8thj" path="res://smuravye/sprites/flower.tscn" id="2_cw500"]
 
 [node name="World" type="Node2D"]
 
 [node name="Druid" parent="." instance=ExtResource("1_fln65")]
-position = Vector2(585, 292)
+position = Vector2(568, 256)
 
 [node name="Panel" type="Panel" parent="."]
 offset_left = 192.0
@@ -32,20 +32,38 @@ offset_top = 104.0
 offset_right = 960.0
 offset_bottom = 472.0
 
-[node name="Object" parent="." instance=ExtResource("2_84hwn")]
-position = Vector2(424, 224)
+[node name="flower" parent="." instance=ExtResource("2_cw500")]
+position = Vector2(416, 200)
 
-[node name="Object2" parent="." instance=ExtResource("2_84hwn")]
-position = Vector2(440, 216)
+[node name="flower2" parent="." instance=ExtResource("2_cw500")]
+position = Vector2(712, 168)
 
-[node name="Object3" parent="." instance=ExtResource("2_84hwn")]
-position = Vector2(368, 368)
+[node name="flower3" parent="." instance=ExtResource("2_cw500")]
+position = Vector2(376, 288)
 
-[node name="Object4" parent="." instance=ExtResource("2_84hwn")]
-position = Vector2(560, 392)
+[node name="flower4" parent="." instance=ExtResource("2_cw500")]
+position = Vector2(720, 288)
 
-[node name="Object5" parent="." instance=ExtResource("2_84hwn")]
-position = Vector2(784, 200)
+[node name="flower5" parent="." instance=ExtResource("2_cw500")]
+position = Vector2(712, 296)
 
-[node name="Object6" parent="." instance=ExtResource("2_84hwn")]
-position = Vector2(784, 352)
+[node name="flower6" parent="." instance=ExtResource("2_cw500")]
+position = Vector2(712, 280)
+
+[node name="flower7" parent="." instance=ExtResource("2_cw500")]
+position = Vector2(616, 336)
+
+[node name="flower8" parent="." instance=ExtResource("2_cw500")]
+position = Vector2(624, 344)
+
+[node name="flower9" parent="." instance=ExtResource("2_cw500")]
+position = Vector2(632, 328)
+
+[node name="flower10" parent="." instance=ExtResource("2_cw500")]
+position = Vector2(632, 336)
+
+[node name="flower11" parent="." instance=ExtResource("2_cw500")]
+position = Vector2(536, 160)
+
+[node name="flower12" parent="." instance=ExtResource("2_cw500")]
+position = Vector2(544, 160)

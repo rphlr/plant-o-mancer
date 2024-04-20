@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://l6rxw8pg53wu"]
+[gd_scene load_steps=23 format=3 uid="uid://l6rxw8pg53wu"]
 
 [ext_resource type="Script" path="res://smuravye/Player/player_druid.gd" id="1_2js5k"]
 [ext_resource type="Texture2D" uid="uid://dlyil5pavoa5h" path="res://sunnylands/Sunny Land Collection Files/Sunny Land Collection Files/Packs/Sunnyland/sprites/player/idle/player-idle-1.png" id="1_ya8kn"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dnh82b1ykxkpy" path="res://sunnylands/Sunny Land Collection Files/Sunny Land Collection Files/Packs/Sunnyland/sprites/player/run/player-run-4.png" id="9_wxxbj"]
 [ext_resource type="Texture2D" uid="uid://b25s5qfmkl7jw" path="res://sunnylands/Sunny Land Collection Files/Sunny Land Collection Files/Packs/Sunnyland/sprites/player/run/player-run-5.png" id="10_thbkv"]
 [ext_resource type="Texture2D" uid="uid://0j182nr1s5bp" path="res://sunnylands/Sunny Land Collection Files/Sunny Land Collection Files/Packs/Sunnyland/sprites/player/run/player-run-6.png" id="11_jxm7s"]
+[ext_resource type="Script" path="res://smuravye/Player/InputDisplay.gd" id="14_1u4c6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2kgw0"]
 animations = [{
@@ -79,6 +80,35 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x2pyh"]
 radius = 9.0
 height = 20.0
+
+[sub_resource type="Animation" id="Animation_1e5cm"]
+resource_name = "Channel"
+length = 0.25
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Channel"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
 
 [sub_resource type="Animation" id="Animation_0huis"]
 resource_name = "Idle"
@@ -153,35 +183,6 @@ tracks/1/keys = {
 "values": [0, 1, 2, 3, 4, 5]
 }
 
-[sub_resource type="Animation" id="Animation_1e5cm"]
-resource_name = "Channel"
-length = 0.25
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"Channel"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [0, 1, 2]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c8j6h"]
 _data = {
 "Channel": SubResource("Animation_1e5cm"),
@@ -191,7 +192,7 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qjmao"]
-radius = 27.0185
+radius = 39.0128
 
 [node name="Druid" type="CharacterBody2D"]
 motion_mode = 1
@@ -213,7 +214,16 @@ libraries = {
 autoplay = "Idle"
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
+zoom = Vector2(2.4, 2.4)
+
+[node name="InputDisplay" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -22.0
+offset_top = 20.0
+offset_right = 22.0
+offset_bottom = 31.0
+script = ExtResource("14_1u4c6")
 
 [node name="Interaction Area" type="Area2D" parent="."]
 
