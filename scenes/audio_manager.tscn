@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://6mdjrm773v5g"]
+
+[ext_resource type="Script" path="res://scripts/audio_manager.gd" id="1_dnwig"]
+[ext_resource type="AudioStream" uid="uid://cc0uvp70ytyec" path="res://assets/audio/Plant-o-Mancer-perfect-loop.mp3" id="2_24lj8"]
+[ext_resource type="AudioStream" uid="uid://det3nram1xs75" path="res://assets/audio/button.wav" id="3_8amcv"]
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_dnwig")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_24lj8")
+bus = &"Music"
+
+[node name="SoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_8amcv")
+bus = &"Sound Effect"
+
+[connection signal="finished" from="MusicPlayer" to="." method="_on_music_player_finished"]
