@@ -1,34 +1,57 @@
 extends CharacterBody2D
 
-const SPEED = 150.0
+var SPEED = 150.00
+var health: int = 50
 
 @onready var anim = get_node("AnimationPlayer")
 @onready var interaction_area = get_node("InteractionArea")
+@onready var inputDisplay = $InputDisplay
+@onready var camera = $Camera2D
 
+#channeling / growing variables
 var is_channeling = false
 var interaction_time = 0.0
-var channel_time = 0.5
+var channel_time = 2.0
+#interaction object list and current target
 var current_target = null
 var interact_list = []
 
+
 func _physics_process(delta):
+	#handles "space" input and engages channeling logic
 	if Input.is_action_just_pressed("char_interact") and not is_channeling:
 		start_channeling()
-	elif is_channeling:
-		interaction_time += delta
-		if interaction_time >= channel_time:
+	if is_channeling:
+		if inputDisplay.input_checker():
 			stop_channeling()
-		return
+		else:
+			return
 	var horizontal = Input.get_axis("char_a", "char_d")
 	var vertical = Input.get_axis("char_w", "char_s")
-	
-	velocity.x = horizontal * SPEED
+	if horizontal > 0:
+		velocity.x = horizontal * SPEED
+	else:
+		velocity.x = 0
 	velocity.y = vertical * SPEED
 	handle_animation(horizontal, vertical)
 	move_and_slide()
 
+func handle_animation(horizontal, vertical):
+	if horizontal == -1:
+		get_node("AnimatedSprite2D").flip_h = false
+	elif horizontal == 1:
+		get_node("AnimatedSprite2D").flip_h = true
+	if horizontal == 0 and vertical == 0 and not is_channeling:
+		anim.play("Idle")
+	elif not is_channeling:
+		anim.play("Run")
+
+# ------------------------ CHANELLING LOGIC --------------------------------- #
 func start_channeling():
 	if interact_list:
+		#for i in interact_list:
+			#i.get_node("AnimationPlayer").play("Invoke")
+		inputDisplay.init_input_checker()
 		is_channeling = true
 		interaction_time = 0.0
 		anim.play("Channel")
@@ -37,26 +60,25 @@ func stop_channeling():
 	is_channeling = false
 	for x in interact_list:
 		x.queue_free()
+		summon_ally(x.position)
 	interact_list = []
 	anim.play("Idle")
 
-func handle_animation(horizontal, vertical):
-	if horizontal == -1:
-		get_node("AnimatedSprite2D").flip_h = true
-	elif horizontal == 1:
-		get_node("AnimatedSprite2D").flip_h = false
-
-	if horizontal == 0 and vertical == 0 and not is_channeling:
-		anim.play("Idle")
-	elif not is_channeling:
-		anim.play("Run")
+# ------------------------ DETECTING INTERACTIBLE OBJECTS ------------------- #
 
 func _on_interaction_area_body_entered(body):
 	if body.is_in_group("Interactable"):
 		interact_list.append(body)
+		body.get_node("AnimationPlayer").play("Invoke")
 		
-
 func _on_interaction_area_body_exited(body):
 	if body in interact_list:
 		interact_list.erase(body)
-		
+		body.get_node("AnimationPlayer").play("Idle")
+
+# ------------------------ DEPLOYING ALLY SUMMON  --------------------------- #
+func summon_ally(position):
+	var summon = preload("res://smuravye/ally/placeholder_ally.tscn").instantiate()
+	var world_node = get_tree().get_root().get_node("World")
+	summon.position = position
+	world_node.add_child(summon)
