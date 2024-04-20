@@ -3,6 +3,8 @@ extends Node2D
 @onready var ui_layer: CanvasLayer = $CanvasLayer
 @onready var settings: TabContainer = $CanvasLayer/Panel/Settings
 
+var static_settings
+
 '''
 Flow chart
 Game <==> Pause Menu ==> Settings
@@ -20,8 +22,11 @@ func _input(event: InputEvent):
 
 func show_ui_layer():
 	pause_game()
-	ui_layer.show()
 	reset_focus()
+	ui_layer.show()
+	if static_settings == 1:
+		settings.show()
+		settings.reset_focus()
 
 func reset_focus():
 	$CanvasLayer/Panel/PauseMenu/Resume.grab_focus()
@@ -38,6 +43,8 @@ func _on_resume_pressed():
 	resume_game()
 
 func _on_option_pressed():
+	$CanvasLayer/Panel/PauseMenu.hide()
+	static_settings = 1
 	settings.show()
 	settings.reset_focus()
 

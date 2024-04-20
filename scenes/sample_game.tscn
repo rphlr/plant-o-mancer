@@ -54,7 +54,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Resume" type="Button" parent="CanvasLayer/Panel/PauseMenu"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(250, 100)
 layout_mode = 2
 focus_neighbor_top = NodePath("../MainMenu")
 focus_neighbor_bottom = NodePath("../Option")
@@ -63,7 +63,7 @@ theme_override_font_sizes/font_size = 24
 text = "Resume"
 
 [node name="Option" type="Button" parent="CanvasLayer/Panel/PauseMenu"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(250, 100)
 layout_mode = 2
 focus_neighbor_top = NodePath("../Resume")
 focus_neighbor_bottom = NodePath("../MainMenu")
@@ -72,7 +72,7 @@ theme_override_font_sizes/font_size = 24
 text = "Option"
 
 [node name="MainMenu" type="Button" parent="CanvasLayer/Panel/PauseMenu"]
-custom_minimum_size = Vector2(150, 0)
+custom_minimum_size = Vector2(250, 100)
 layout_mode = 2
 focus_neighbor_top = NodePath("../Option")
 focus_neighbor_bottom = NodePath("../Resume")

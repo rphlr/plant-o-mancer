@@ -1,6 +1,7 @@
 extends Node
 
-@onready var music_player: AudioStreamPlayer = $MusicPlayer
+@onready var launcher_theme: AudioStreamPlayer = $LauncherTheme
+@onready var loop_theme: AudioStreamPlayer = $LoopTheme
 @onready var sound_player: AudioStreamPlayer = $SoundPlayer
 
 func _ready():
@@ -9,9 +10,14 @@ func _ready():
 func play_button_sound():
 	sound_player.play()
 
-func play_music_sound():
-	music_player.play()
+func play_launcher_theme():
+	launcher_theme.play()
 
+func stop_launcher_theme():
+	launcher_theme.stop()
 
-func _on_music_player_finished():
-	music_player.play()
+func play_loop_theme():
+	loop_theme.play()
+
+func _on_loop_theme_finished():
+	loop_theme.play()

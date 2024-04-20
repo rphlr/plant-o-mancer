@@ -28,9 +28,8 @@ AudioManager="*res://scenes/audio_manager.tscn"
 
 window/size/viewport_width=1250
 window/size/viewport_height=720
-window/stretch/aspect="expand"
-window/stretch/scale=2.0
-mouse_cursor/custom_image="res://assets/MinimalUI/Cursor_01_3D.png"
+window/stretch/mode="canvas_items"
+mouse_cursor/custom_image="res://assets/images/Cursor_01_3D.png"
 
 [input]
 
@@ -67,5 +66,6 @@ Enter={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"

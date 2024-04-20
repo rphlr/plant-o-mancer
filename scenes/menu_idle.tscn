@@ -1,0 +1,82 @@
+[gd_scene load_steps=12 format=3 uid="uid://dtws7fx5haeg6"]
+
+[ext_resource type="Script" path="res://scripts/menu_idle.gd" id="1_2aevj"]
+[ext_resource type="Texture2D" uid="uid://cyh2mu5kcau6f" path="res://assets/images/DPS.png" id="3_etxcg"]
+[ext_resource type="Texture2D" uid="uid://c3huu7hkqclwl" path="res://assets/images/Druid.png" id="3_gywct"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uk0m4"]
+atlas = ExtResource("3_gywct")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hatj7"]
+atlas = ExtResource("3_gywct")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2f7wv"]
+atlas = ExtResource("3_gywct")
+region = Rect2(128, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_elwvk"]
+atlas = ExtResource("3_gywct")
+region = Rect2(192, 128, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t185b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uk0m4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hatj7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2f7wv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_elwvk")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bafxo"]
+atlas = ExtResource("3_etxcg")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hy2kj"]
+atlas = ExtResource("3_etxcg")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g8v8m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bafxo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hy2kj")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 4.0
+}]
+
+[node name="Menu idle" type="Node2D"]
+script = ExtResource("1_2aevj")
+
+[node name="druid" type="AnimatedSprite2D" parent="."]
+process_mode = 3
+texture_repeat = 2
+position = Vector2(99, -26)
+sprite_frames = SubResource("SpriteFrames_t185b")
+animation = &"walking"
+frame_progress = 0.468776
+flip_h = true
+
+[node name="DPS" type="AnimatedSprite2D" parent="."]
+position = Vector2(25, -25)
+sprite_frames = SubResource("SpriteFrames_g8v8m")
+animation = &"walking"
+frame_progress = 0.819526
+flip_h = true

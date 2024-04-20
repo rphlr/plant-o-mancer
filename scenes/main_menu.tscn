@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://dc388hkklqvvc"]
+[gd_scene load_steps=9 format=3 uid="uid://dc388hkklqvvc"]
 
 [ext_resource type="Theme" uid="uid://cb2tqos08yhkd" path="res://assets/MinimalUI/MinimalUI.tres" id="1_0ajpt"]
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_tievw"]
+[ext_resource type="Texture2D" uid="uid://dt3eryhuewkyu" path="res://assets/images/title.png" id="2_mm4fb"]
 [ext_resource type="PackedScene" uid="uid://603k3vy4p3f1" path="res://scenes/settings.tscn" id="3_dt7l5"]
+[ext_resource type="Texture2D" uid="uid://cy2rh3ll168ss" path="res://assets/images/Play.png" id="4_3h6i2"]
+[ext_resource type="Texture2D" uid="uid://bot3pem6djbr0" path="res://assets/images/quit.png" id="4_bs7m8"]
+[ext_resource type="PackedScene" uid="uid://dil44us4mkp10" path="res://scenes/parallax_background.tscn" id="4_eo560"]
+[ext_resource type="Texture2D" uid="uid://di5ch60xctkib" path="res://assets/images/Settings.png" id="5_oxo4v"]
 
 [node name="MainMenu" type="Node2D"]
 
@@ -17,77 +22,64 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_tievw")
 
-[node name="ColorRect" type="ColorRect" parent="UI/MainMenu"]
+[node name="Title" type="Sprite2D" parent="UI/MainMenu"]
+position = Vector2(625, 129)
+scale = Vector2(1.75, 1.75)
+texture = ExtResource("2_mm4fb")
+
+[node name="VBoxContainer" type="BoxContainer" parent="UI/MainMenu"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.0980392, 0.141176, 0.172549, 1)
+alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/MainMenu"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -318.0
-offset_top = -104.0
-offset_right = 318.0
-offset_bottom = 104.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="SimpleTitle" type="Label" parent="UI/MainMenu/VBoxContainer"]
-custom_minimum_size = Vector2(0, 150)
-layout_mode = 2
-size_flags_vertical = 6
-theme = ExtResource("1_0ajpt")
-theme_override_font_sizes/font_size = 35
-text = "Plant-O-Mancer: Main Menu
-"
-horizontal_alignment = 1
-
-[node name="Start" type="Button" parent="UI/MainMenu/VBoxContainer"]
-custom_minimum_size = Vector2(100, 50)
+[node name="Settings" type="Button" parent="UI/MainMenu/VBoxContainer"]
+custom_minimum_size = Vector2(350, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-focus_neighbor_top = NodePath("../Quit")
-focus_neighbor_bottom = NodePath("../Option")
-theme = ExtResource("1_0ajpt")
-theme_override_font_sizes/font_size = 20
-text = "Start"
-
-[node name="Option" type="Button" parent="UI/MainMenu/VBoxContainer"]
-custom_minimum_size = Vector2(100, 50)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-focus_neighbor_top = NodePath("../Start")
+focus_neighbor_top = NodePath("../Play")
 focus_neighbor_bottom = NodePath("../Quit")
 theme = ExtResource("1_0ajpt")
 theme_override_font_sizes/font_size = 20
-text = "Option"
+icon = ExtResource("5_oxo4v")
+icon_alignment = 1
 
-[node name="Quit" type="Button" parent="UI/MainMenu/VBoxContainer"]
-custom_minimum_size = Vector2(100, 50)
+[node name="Play" type="Button" parent="UI/MainMenu/VBoxContainer"]
+custom_minimum_size = Vector2(350, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-focus_neighbor_top = NodePath("../Option")
-focus_neighbor_bottom = NodePath("../Start")
+focus_next = NodePath("../Quit")
+focus_previous = NodePath("../Settings")
 theme = ExtResource("1_0ajpt")
 theme_override_font_sizes/font_size = 20
-text = "Quit
-"
+icon = ExtResource("4_3h6i2")
+icon_alignment = 1
+
+[node name="Quit" type="Button" parent="UI/MainMenu/VBoxContainer"]
+custom_minimum_size = Vector2(350, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../Settings")
+focus_neighbor_bottom = NodePath("../Play")
+theme = ExtResource("1_0ajpt")
+theme_override_font_sizes/font_size = 20
+icon = ExtResource("4_bs7m8")
+icon_alignment = 1
+
+[node name="bg" parent="UI" instance=ExtResource("4_eo560")]
 
 [node name="Settings" parent="UI" node_paths=PackedStringArray("pre_scene") instance=ExtResource("3_dt7l5")]
 visible = false
 pre_scene = NodePath("../MainMenu")
 
-[connection signal="pressed" from="UI/MainMenu/VBoxContainer/Start" to="UI/MainMenu" method="_on_start_pressed"]
-[connection signal="pressed" from="UI/MainMenu/VBoxContainer/Option" to="UI/MainMenu" method="_on_option_pressed"]
+[connection signal="pressed" from="UI/MainMenu/VBoxContainer/Settings" to="UI/MainMenu" method="_on_option_pressed"]
+[connection signal="pressed" from="UI/MainMenu/VBoxContainer/Play" to="UI/MainMenu" method="_on_start_pressed"]
 [connection signal="pressed" from="UI/MainMenu/VBoxContainer/Quit" to="UI/MainMenu" method="_on_quit_pressed"]
+[connection signal="visibility_changed" from="UI/bg" to="UI/MainMenu" method="_on_bg_visibility_changed"]
+[connection signal="focus_entered" from="UI/Settings" to="UI/bg" method="_on_settings_focus_entered"]

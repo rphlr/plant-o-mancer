@@ -23,5 +23,9 @@ func reload_settings():
 
 func _on_back_pressed():
 	hide()
+	pre_scene.visible = true
+	if $"../PauseMenu":
+		$"../PauseMenu".show()
+		$"../../..".static_settings = 0
 	pre_scene.reset_focus()
 	AudioManager.play_button_sound()
