@@ -32,7 +32,7 @@ var enemies_in_range = []
 var rng = RandomNumberGenerator.new()
 
 @onready var animate: AnimationPlayer = get_node("AnimationPlayer")
-@onready var player: CharacterBody2D = $"../../Druid"
+@onready var player: CharacterBody2D = $"../Druid"
 
 
 func _physics_process(delta):

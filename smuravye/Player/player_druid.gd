@@ -8,6 +8,8 @@ var health: int = 50
 @onready var inputDisplay = $InputDisplay
 @onready var camera = $Camera2D
 
+var ally_template = preload("res://Ally/Ally.tscn")
+
 #channeling / growing variables
 var is_channeling = false
 var interaction_time = 0.0
@@ -78,7 +80,7 @@ func _on_interaction_area_body_exited(body):
 
 # ------------------------ DEPLOYING ALLY SUMMON  --------------------------- #
 func summon_ally(position):
-	var summon = preload("res://smuravye/ally/placeholder_ally.tscn").instantiate()
+	var summon = ally_template.instantiate()
 	var world_node = get_tree().get_root().get_node("World")
 	summon.position = position
 	world_node.add_child(summon)

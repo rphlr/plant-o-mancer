@@ -99,6 +99,14 @@ texture = ExtResource("4_y8my0")
 position = Vector2(736, 456)
 texture = ExtResource("4_y8my0")
 
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+scale = Vector2(1.10254, 0.964213)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-43.3189, 336.025)
+scale = Vector2(0.975676, 1.01685)
+shape = SubResource("RectangleShape2D_eqoak")
+
 [node name="flower" parent="." instance=ExtResource("2_cw500")]
 position = Vector2(840, 320)
 
@@ -113,11 +121,3 @@ position = Vector2(472, 216)
 
 [node name="flower5" parent="." instance=ExtResource("2_cw500")]
 position = Vector2(664, 464)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-scale = Vector2(1.10254, 0.964213)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-43.3189, 336.025)
-scale = Vector2(0.975676, 1.01685)
-shape = SubResource("RectangleShape2D_eqoak")

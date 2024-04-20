@@ -15,6 +15,7 @@ func _ready():
 func _process(delta):
 	update_distance_travelled()
 	try_spawn_flower()
+	spawn_enemies()
 	
 func update_distance_travelled():
 	if last_player_position:
@@ -36,5 +37,6 @@ func spawn_flower():
 		add_child(flower)
 	
 	
-	
+func spawn_enemies():
+	pass
  
