@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=3 uid="uid://dil44us4mkp10"]
 
-[ext_resource type="Script" path="res://scripts/parallax_background.gd" id="1_1njm6"]
-[ext_resource type="Texture2D" uid="uid://cbcfydlibbpts" path="res://assets/images/Parallax background/sky_lightened.png" id="1_tw027"]
-[ext_resource type="Texture2D" uid="uid://c6th5uem4buch" path="res://assets/images/Parallax background/clouds_mg_2.png" id="3_6djw4"]
-[ext_resource type="Texture2D" uid="uid://brhc21bc7pvq0" path="res://assets/images/Parallax background/cloud_lonely.png" id="4_helg5"]
-[ext_resource type="Texture2D" uid="uid://h6jfs5kgtxom" path="res://assets/images/moutains.png" id="5_7h8jp"]
-[ext_resource type="Texture2D" uid="uid://mj2fi0gwos66" path="res://assets/images/Parallax1.png" id="8_flb2p"]
-[ext_resource type="PackedScene" uid="uid://dtws7fx5haeg6" path="res://scenes/menu_idle.tscn" id="9_2u5if"]
-[ext_resource type="Texture2D" uid="uid://cnjm1msib6dfx" path="res://assets/images/grass.png" id="10_0joor"]
+[ext_resource type="Script" path="res://Main_menu/scripts/parallax_background.gd" id="1_1njm6"]
+[ext_resource type="Texture2D" uid="uid://bo8t02lqi7y1h" path="res://assets/images/Parallax background/sky_lightened.png" id="1_tw027"]
+[ext_resource type="Texture2D" uid="uid://cbnuxjfaa77sp" path="res://assets/images/Parallax background/clouds_mg_2.png" id="3_6djw4"]
+[ext_resource type="Texture2D" uid="uid://bybl3uev3qj6i" path="res://assets/images/Parallax background/cloud_lonely.png" id="4_helg5"]
+[ext_resource type="Texture2D" uid="uid://bhmk352o3hnwj" path="res://assets/images/moutains.png" id="5_7h8jp"]
+[ext_resource type="Texture2D" uid="uid://rsq2i4rt8fku" path="res://assets/images/Parallax1.png" id="8_flb2p"]
+[ext_resource type="PackedScene" uid="uid://dtws7fx5haeg6" path="res://Main_menu/scenes/menu_idle.tscn" id="9_2u5if"]
+[ext_resource type="Texture2D" uid="uid://tmsukljkneas" path="res://assets/images/grass.png" id="10_0joor"]
 
 [node name="bg" type="ParallaxBackground"]
 script = ExtResource("1_1njm6")

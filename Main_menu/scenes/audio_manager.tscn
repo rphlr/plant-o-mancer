@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://6mdjrm773v5g"]
 
-[ext_resource type="Script" path="res://scripts/audio_manager.gd" id="1_dnwig"]
+[ext_resource type="Script" path="res://Main_menu/scripts/audio_manager.gd" id="1_dnwig"]
 [ext_resource type="AudioStream" uid="uid://cc0uvp70ytyec" path="res://assets/audio/Plant-o-Mancer-perfect-loop.mp3" id="2_24lj8"]
 [ext_resource type="AudioStream" uid="uid://cocew5bk8wgyr" path="res://assets/audio/Plant-o-mancer.mp3" id="2_fnqxn"]
 [ext_resource type="AudioStream" uid="uid://det3nram1xs75" path="res://assets/audio/button.wav" id="3_8amcv"]

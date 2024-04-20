@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Plant-o-Mancer"
-run/main_scene="res://scenes/main_menu.tscn"
+run/main_scene="res://Main_menu/scenes/main_menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -21,8 +21,8 @@ buses/default_bus_layout="res://assets/default_bus_layout.tres"
 
 [autoload]
 
-Utilities="*res://scenes/utilities.tscn"
-AudioManager="*res://scenes/audio_manager.tscn"
+Utilities="*res://Main_menu/scenes/utilities.tscn"
+AudioManager="*res://Main_menu/scenes/audio_manager.tscn"
 
 [display]
 

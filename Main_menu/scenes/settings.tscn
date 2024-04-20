@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=3 uid="uid://603k3vy4p3f1"]
 
-[ext_resource type="Theme" uid="uid://cb2tqos08yhkd" path="res://assets/MinimalUI/MinimalUI.tres" id="1_8vxdm"]
-[ext_resource type="FontFile" uid="uid://dsisvfrdgqau" path="res://assets/Cubic_11_1.013_R.ttf" id="2_0akq2"]
-[ext_resource type="Script" path="res://scripts/settings.gd" id="2_7yy6c"]
-[ext_resource type="Script" path="res://scripts/video.gd" id="2_u8ap5"]
-[ext_resource type="Script" path="res://scripts/audio.gd" id="3_t3cm1"]
-[ext_resource type="Texture2D" uid="uid://csk7a8383q1cm" path="res://assets/images/Back.png" id="4_8by2h"]
-[ext_resource type="PackedScene" uid="uid://v37pld2ul4n6" path="res://scenes/action_button.tscn" id="4_qu75p"]
+[ext_resource type="Theme" uid="uid://cb2tqos08yhkd" path="res://assets/MinimalUI/MinimalUI.tres" id="1_kjvt1"]
+[ext_resource type="FontFile" uid="uid://dsisvfrdgqau" path="res://assets/Cubic_11_1.013_R.ttf" id="2_wvgxw"]
+[ext_resource type="Script" path="res://Main_menu/scripts/settings.gd" id="3_5j0kw"]
+[ext_resource type="Script" path="res://Main_menu/scripts/video.gd" id="4_whtk6"]
+[ext_resource type="Texture2D" uid="uid://bw3gct66ap7r4" path="res://assets/images/Back.png" id="5_kig6x"]
+[ext_resource type="Script" path="res://Main_menu/scripts/audio.gd" id="6_acy8c"]
+[ext_resource type="PackedScene" uid="uid://v37pld2ul4n6" path="res://Main_menu/scenes/action_button.tscn" id="7_7roas"]
 
 [node name="Settings" type="TabContainer"]
 anchors_preset = 15
@@ -14,21 +14,21 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_8vxdm")
+theme = ExtResource("1_kjvt1")
 theme_override_constants/side_margin = 25
 theme_override_constants/outline_size = 0
-theme_override_fonts/font = ExtResource("2_0akq2")
+theme_override_fonts/font = ExtResource("2_wvgxw")
 theme_override_font_sizes/font_size = 50
-script = ExtResource("2_7yy6c")
+script = ExtResource("3_5j0kw")
 
 [node name="Video" type="TabBar" parent="."]
 layout_mode = 2
 focus_neighbor_left = NodePath("../Controls")
 focus_neighbor_right = NodePath("../Audio")
 focus_neighbor_bottom = NodePath("HBoxContainer/VBoxContainer2/Fullscreen")
-theme = ExtResource("1_8vxdm")
+theme = ExtResource("1_kjvt1")
 theme_override_font_sizes/font_size = 20
-script = ExtResource("2_u8ap5")
+script = ExtResource("4_whtk6")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Video"]
 layout_mode = 1
@@ -89,7 +89,7 @@ size_flags_vertical = 6
 focus_neighbor_top = NodePath("../../..")
 focus_neighbor_bottom = NodePath("../Borderless")
 focus_next = NodePath("../Borderless")
-theme = ExtResource("1_8vxdm")
+theme = ExtResource("1_kjvt1")
 
 [node name="Borderless" type="CheckBox" parent="Video/HBoxContainer/VBoxContainer2"]
 custom_minimum_size = Vector2(250, 100)
@@ -98,7 +98,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 6
 focus_neighbor_top = NodePath("../Fullscreen")
 focus_neighbor_bottom = NodePath("../Vsync")
-theme = ExtResource("1_8vxdm")
+theme = ExtResource("1_kjvt1")
 
 [node name="Vsync" type="OptionButton" parent="Video/HBoxContainer/VBoxContainer2"]
 custom_minimum_size = Vector2(250, 100)
@@ -107,7 +107,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 6
 focus_neighbor_top = NodePath("../Borderless")
 focus_neighbor_bottom = NodePath("../../../Back")
-theme = ExtResource("1_8vxdm")
+theme = ExtResource("1_kjvt1")
 theme_override_font_sizes/font_size = 30
 item_count = 4
 selected = 1
@@ -135,9 +135,9 @@ grow_horizontal = 0
 grow_vertical = 0
 focus_neighbor_top = NodePath("../HBoxContainer/VBoxContainer2/Vsync")
 focus_neighbor_bottom = NodePath("../HBoxContainer/VBoxContainer2/Fullscreen")
-theme = ExtResource("1_8vxdm")
+theme = ExtResource("1_kjvt1")
 theme_override_font_sizes/font_size = 24
-icon = ExtResource("4_8by2h")
+icon = ExtResource("5_kig6x")
 icon_alignment = 1
 
 [node name="Audio" type="TabBar" parent="."]
@@ -145,9 +145,9 @@ visible = false
 layout_mode = 2
 focus_neighbor_left = NodePath("../Video")
 focus_neighbor_right = NodePath("../Controls")
-theme = ExtResource("1_8vxdm")
+theme = ExtResource("1_kjvt1")
 theme_override_font_sizes/font_size = 20
-script = ExtResource("3_t3cm1")
+script = ExtResource("6_acy8c")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Audio"]
 layout_mode = 1
@@ -227,9 +227,9 @@ offset_bottom = -16.0
 grow_horizontal = 0
 grow_vertical = 0
 focus_neighbor_top = NodePath("../HBoxContainer/VBoxContainer2/SoundEffects")
-theme = ExtResource("1_8vxdm")
+theme = ExtResource("1_kjvt1")
 theme_override_font_sizes/font_size = 24
-icon = ExtResource("4_8by2h")
+icon = ExtResource("5_kig6x")
 icon_alignment = 1
 
 [node name="Controls" type="TabBar" parent="."]
@@ -238,7 +238,7 @@ layout_mode = 2
 focus_neighbor_left = NodePath("../Audio")
 focus_neighbor_right = NodePath("../Video")
 focus_neighbor_bottom = NodePath("HBoxContainer/VBoxContainer2/Up")
-theme = ExtResource("1_8vxdm")
+theme = ExtResource("1_kjvt1")
 theme_override_font_sizes/font_size = 20
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Controls"]
@@ -298,24 +298,24 @@ vertical_alignment = 1
 [node name="VBoxContainer2" type="VBoxContainer" parent="Controls/HBoxContainer"]
 layout_mode = 2
 
-[node name="Up" parent="Controls/HBoxContainer/VBoxContainer2" instance=ExtResource("4_qu75p")]
+[node name="Up" parent="Controls/HBoxContainer/VBoxContainer2" instance=ExtResource("7_7roas")]
 layout_mode = 2
 focus_neighbor_top = NodePath("../../..")
 focus_neighbor_bottom = NodePath("../Down")
 
-[node name="Down" parent="Controls/HBoxContainer/VBoxContainer2" instance=ExtResource("4_qu75p")]
+[node name="Down" parent="Controls/HBoxContainer/VBoxContainer2" instance=ExtResource("7_7roas")]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Up")
 focus_neighbor_bottom = NodePath("../Left")
 action = "Down"
 
-[node name="Left" parent="Controls/HBoxContainer/VBoxContainer2" instance=ExtResource("4_qu75p")]
+[node name="Left" parent="Controls/HBoxContainer/VBoxContainer2" instance=ExtResource("7_7roas")]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Down")
 focus_neighbor_bottom = NodePath("../Right")
 action = "Left"
 
-[node name="Right" parent="Controls/HBoxContainer/VBoxContainer2" instance=ExtResource("4_qu75p")]
+[node name="Right" parent="Controls/HBoxContainer/VBoxContainer2" instance=ExtResource("7_7roas")]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Left")
 focus_neighbor_bottom = NodePath("../../../Back")
@@ -337,9 +337,9 @@ grow_horizontal = 0
 grow_vertical = 0
 focus_neighbor_top = NodePath("../HBoxContainer/VBoxContainer2/Right")
 focus_neighbor_bottom = NodePath("../HBoxContainer/VBoxContainer2/Up")
-theme = ExtResource("1_8vxdm")
+theme = ExtResource("1_kjvt1")
 theme_override_font_sizes/font_size = 24
-icon = ExtResource("4_8by2h")
+icon = ExtResource("5_kig6x")
 icon_alignment = 1
 
 [connection signal="toggled" from="Video/HBoxContainer/VBoxContainer2/Fullscreen" to="Video" method="_on_fullscreen_toggled"]

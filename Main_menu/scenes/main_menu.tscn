@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=3 uid="uid://dc388hkklqvvc"]
 
-[ext_resource type="Theme" uid="uid://cb2tqos08yhkd" path="res://assets/MinimalUI/MinimalUI.tres" id="1_0ajpt"]
-[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_tievw"]
-[ext_resource type="Texture2D" uid="uid://dt3eryhuewkyu" path="res://assets/images/title.png" id="2_mm4fb"]
-[ext_resource type="PackedScene" uid="uid://603k3vy4p3f1" path="res://scenes/settings.tscn" id="3_dt7l5"]
-[ext_resource type="Texture2D" uid="uid://cy2rh3ll168ss" path="res://assets/images/Play.png" id="4_3h6i2"]
-[ext_resource type="Texture2D" uid="uid://bot3pem6djbr0" path="res://assets/images/quit.png" id="4_bs7m8"]
-[ext_resource type="PackedScene" uid="uid://dil44us4mkp10" path="res://scenes/parallax_background.tscn" id="4_eo560"]
-[ext_resource type="Texture2D" uid="uid://di5ch60xctkib" path="res://assets/images/Settings.png" id="5_oxo4v"]
+[ext_resource type="Script" path="res://Main_menu/scripts/main_menu.gd" id="1_qkwse"]
+[ext_resource type="Texture2D" uid="uid://ckdlh2ohpv0ro" path="res://assets/images/title.png" id="2_u0lfo"]
+[ext_resource type="Theme" uid="uid://cb2tqos08yhkd" path="res://assets/MinimalUI/MinimalUI.tres" id="3_sc58e"]
+[ext_resource type="Texture2D" uid="uid://bo1q17xyraew3" path="res://assets/images/Settings.png" id="4_p4lly"]
+[ext_resource type="Texture2D" uid="uid://cxpbky1ohq0h" path="res://assets/images/Play.png" id="5_vr01w"]
+[ext_resource type="Texture2D" uid="uid://bsha511fcabbj" path="res://assets/images/quit.png" id="6_pvcij"]
+[ext_resource type="PackedScene" uid="uid://dil44us4mkp10" path="res://Main_menu/scenes/parallax_background.tscn" id="7_406hv"]
+[ext_resource type="PackedScene" uid="uid://603k3vy4p3f1" path="res://Main_menu/scenes/settings.tscn" id="8_j4sm8"]
 
 [node name="MainMenu" type="Node2D"]
 
@@ -20,12 +20,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_tievw")
+script = ExtResource("1_qkwse")
 
 [node name="Title" type="Sprite2D" parent="UI/MainMenu"]
 position = Vector2(625, 129)
 scale = Vector2(1.75, 1.75)
-texture = ExtResource("2_mm4fb")
+texture = ExtResource("2_u0lfo")
 
 [node name="VBoxContainer" type="BoxContainer" parent="UI/MainMenu"]
 layout_mode = 1
@@ -43,9 +43,9 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 focus_neighbor_top = NodePath("../Play")
 focus_neighbor_bottom = NodePath("../Quit")
-theme = ExtResource("1_0ajpt")
+theme = ExtResource("3_sc58e")
 theme_override_font_sizes/font_size = 20
-icon = ExtResource("5_oxo4v")
+icon = ExtResource("4_p4lly")
 icon_alignment = 1
 
 [node name="Play" type="Button" parent="UI/MainMenu/VBoxContainer"]
@@ -55,9 +55,9 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 focus_next = NodePath("../Quit")
 focus_previous = NodePath("../Settings")
-theme = ExtResource("1_0ajpt")
+theme = ExtResource("3_sc58e")
 theme_override_font_sizes/font_size = 20
-icon = ExtResource("4_3h6i2")
+icon = ExtResource("5_vr01w")
 icon_alignment = 1
 
 [node name="Quit" type="Button" parent="UI/MainMenu/VBoxContainer"]
@@ -67,14 +67,14 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 focus_neighbor_top = NodePath("../Settings")
 focus_neighbor_bottom = NodePath("../Play")
-theme = ExtResource("1_0ajpt")
+theme = ExtResource("3_sc58e")
 theme_override_font_sizes/font_size = 20
-icon = ExtResource("4_bs7m8")
+icon = ExtResource("6_pvcij")
 icon_alignment = 1
 
-[node name="bg" parent="UI" instance=ExtResource("4_eo560")]
+[node name="bg" parent="UI" instance=ExtResource("7_406hv")]
 
-[node name="Settings" parent="UI" node_paths=PackedStringArray("pre_scene") instance=ExtResource("3_dt7l5")]
+[node name="Settings" parent="UI" node_paths=PackedStringArray("pre_scene") instance=ExtResource("8_j4sm8")]
 visible = false
 pre_scene = NodePath("../MainMenu")
 
