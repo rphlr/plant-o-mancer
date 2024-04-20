@@ -58,7 +58,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s1jrh"]
-radius = 5.0
+radius = 16.0312
 
 [sub_resource type="Animation" id="Animation_i6i5l"]
 resource_name = "Idle"
@@ -87,21 +87,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
-}
-
-[sub_resource type="Animation" id="Animation_oawh2"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
 }
 
 [sub_resource type="Animation" id="Animation_1mthv"]
@@ -133,6 +118,21 @@ tracks/1/keys = {
 "values": [0, 1, 2, 3]
 }
 
+[sub_resource type="Animation" id="Animation_oawh2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b6o3a"]
 _data = {
 "Idle": SubResource("Animation_i6i5l"),
@@ -143,13 +143,14 @@ _data = {
 [node name="flower" type="StaticBody2D" groups=["Interactable"]]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["Interactable"]]
-scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_sb7gd")
 animation = &"Invoke"
 frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Interactable"]]
 shape = SubResource("CircleShape2D_s1jrh")
+one_way_collision = true
+one_way_collision_margin = 0.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." groups=["Interactable"]]
 libraries = {

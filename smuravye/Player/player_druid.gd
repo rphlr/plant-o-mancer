@@ -1,11 +1,12 @@
 extends CharacterBody2D
 
-var SPEED = 150.0
-var HEALTH: int = 50
+var SPEED = 150.00
+var health: int = 50
 
 @onready var anim = get_node("AnimationPlayer")
 @onready var interaction_area = get_node("InteractionArea")
 @onready var inputDisplay = $InputDisplay
+@onready var camera = $Camera2D
 
 #channeling / growing variables
 var is_channeling = false
@@ -14,6 +15,7 @@ var channel_time = 2.0
 #interaction object list and current target
 var current_target = null
 var interact_list = []
+
 
 func _physics_process(delta):
 	#handles "space" input and engages channeling logic
@@ -26,16 +28,19 @@ func _physics_process(delta):
 			return
 	var horizontal = Input.get_axis("char_a", "char_d")
 	var vertical = Input.get_axis("char_w", "char_s")
-	velocity.x = horizontal * SPEED
+	if horizontal > 0:
+		velocity.x = horizontal * SPEED
+	else:
+		velocity.x = 0
 	velocity.y = vertical * SPEED
 	handle_animation(horizontal, vertical)
 	move_and_slide()
 
 func handle_animation(horizontal, vertical):
 	if horizontal == -1:
-		get_node("AnimatedSprite2D").flip_h = true
-	elif horizontal == 1:
 		get_node("AnimatedSprite2D").flip_h = false
+	elif horizontal == 1:
+		get_node("AnimatedSprite2D").flip_h = true
 	if horizontal == 0 and vertical == 0 and not is_channeling:
 		anim.play("Idle")
 	elif not is_channeling:

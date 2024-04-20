@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbquokc1cdyxn"]
+
+[ext_resource type="Texture2D" uid="uid://b6qnq3tw6jcd6" path="res://smuravye/backgroud/bush.png" id="1_mig08"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iwosd"]
+radius = 12.0
+
+[node name="bush" type="RigidBody2D"]
+mass = 0.01
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_iwosd")
+
+[node name="Bush" type="Sprite2D" parent="."]
+texture = ExtResource("1_mig08")
