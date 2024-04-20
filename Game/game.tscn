@@ -1,0 +1,123 @@
+[gd_scene load_steps=10 format=3 uid="uid://o0qumori6aa2"]
+
+[ext_resource type="Script" path="res://Game/world.gd" id="1_2h7gc"]
+[ext_resource type="PackedScene" uid="uid://l6rxw8pg53wu" path="res://Player/player_druid.tscn" id="2_qoltr"]
+[ext_resource type="Script" path="res://Game/ParallaxBackground.gd" id="3_kn5rn"]
+[ext_resource type="Texture2D" uid="uid://710621y1w1fx" path="res://Background/bg_color.png" id="4_pbxiw"]
+[ext_resource type="Texture2D" uid="uid://bmhp1jcf3is4s" path="res://Background/tree.png" id="5_dhbys"]
+[ext_resource type="Texture2D" uid="uid://b6qnq3tw6jcd6" path="res://Background/bush.png" id="6_xwreu"]
+[ext_resource type="Texture2D" uid="uid://fd8h1w57yrgc" path="res://Background/rock.png" id="7_i32rd"]
+[ext_resource type="PackedScene" uid="uid://dheke6hrb8thj" path="res://Flower/Flower.tscn" id="8_rd4fd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eqoak"]
+size = Vector2(88.7978, 660.915)
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_2h7gc")
+
+[node name="Druid" parent="." instance=ExtResource("2_qoltr")]
+position = Vector2(472, 304)
+
+[node name="BG" type="ParallaxBackground" parent="."]
+script = ExtResource("3_kn5rn")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="BG"]
+position = Vector2(8, -8)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="BgColor" type="Sprite2D" parent="BG/ParallaxLayer"]
+position = Vector2(-8, 8)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_pbxiw")
+centered = false
+
+[node name="Tree" type="Sprite2D" parent="BG/ParallaxLayer"]
+position = Vector2(696, 240)
+texture = ExtResource("5_dhbys")
+
+[node name="Bush" type="Sprite2D" parent="BG/ParallaxLayer"]
+position = Vector2(304, 416)
+texture = ExtResource("6_xwreu")
+
+[node name="Tree2" type="Sprite2D" parent="BG/ParallaxLayer"]
+position = Vector2(280, 160)
+texture = ExtResource("5_dhbys")
+
+[node name="Bush2" type="Sprite2D" parent="BG/ParallaxLayer"]
+position = Vector2(704, 448)
+texture = ExtResource("6_xwreu")
+
+[node name="Rock" type="Sprite2D" parent="BG/ParallaxLayer"]
+position = Vector2(480, 88)
+texture = ExtResource("7_i32rd")
+
+[node name="Rock2" type="Sprite2D" parent="BG/ParallaxLayer"]
+position = Vector2(152, 488)
+texture = ExtResource("7_i32rd")
+
+[node name="Bush3" type="Sprite2D" parent="BG/ParallaxLayer"]
+position = Vector2(536, 432)
+texture = ExtResource("6_xwreu")
+
+[node name="Tree3" type="Sprite2D" parent="BG/ParallaxLayer"]
+position = Vector2(944, 416)
+texture = ExtResource("5_dhbys")
+
+[node name="Tree4" type="Sprite2D" parent="BG/ParallaxLayer"]
+position = Vector2(864, 152)
+texture = ExtResource("5_dhbys")
+
+[node name="Tree5" type="Sprite2D" parent="BG/ParallaxLayer"]
+position = Vector2(232, 568)
+texture = ExtResource("5_dhbys")
+
+[node name="Tree6" type="Sprite2D" parent="BG/ParallaxLayer"]
+position = Vector2(680, 288)
+texture = ExtResource("5_dhbys")
+
+[node name="Rock3" type="Sprite2D" parent="BG/ParallaxLayer"]
+position = Vector2(592, 144)
+texture = ExtResource("7_i32rd")
+
+[node name="Rock4" type="Sprite2D" parent="BG/ParallaxLayer"]
+position = Vector2(600, 160)
+texture = ExtResource("7_i32rd")
+
+[node name="Rock5" type="Sprite2D" parent="BG/ParallaxLayer"]
+position = Vector2(536, 136)
+texture = ExtResource("7_i32rd")
+
+[node name="Bush4" type="Sprite2D" parent="BG/ParallaxLayer"]
+position = Vector2(544, 608)
+texture = ExtResource("6_xwreu")
+
+[node name="Bush5" type="Sprite2D" parent="BG/ParallaxLayer"]
+position = Vector2(552, 568)
+texture = ExtResource("6_xwreu")
+
+[node name="Bush6" type="Sprite2D" parent="BG/ParallaxLayer"]
+position = Vector2(736, 456)
+texture = ExtResource("6_xwreu")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+scale = Vector2(1.10254, 0.964213)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-43.3189, 336.025)
+scale = Vector2(0.975676, 1.01685)
+shape = SubResource("RectangleShape2D_eqoak")
+
+[node name="flower" parent="." instance=ExtResource("8_rd4fd")]
+position = Vector2(840, 320)
+
+[node name="flower2" parent="." instance=ExtResource("8_rd4fd")]
+position = Vector2(336, 296)
+
+[node name="flower3" parent="." instance=ExtResource("8_rd4fd")]
+position = Vector2(424, 552)
+
+[node name="flower4" parent="." instance=ExtResource("8_rd4fd")]
+position = Vector2(472, 216)
+
+[node name="flower5" parent="." instance=ExtResource("8_rd4fd")]
+position = Vector2(664, 464)

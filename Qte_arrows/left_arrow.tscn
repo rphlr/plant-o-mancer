@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://datthdupmms8m"]
+
+[ext_resource type="Texture2D" uid="uid://dhjow6dp53wc1" path="res://Qte_arrows/Green/QTE_LEFT_green.png" id="1_gv0qj"]
+[ext_resource type="Texture2D" uid="uid://dcd3a0c4xab8f" path="res://Qte_arrows/White/QTE_LEFT_white.png" id="2_myhua"]
+[ext_resource type="Texture2D" uid="uid://bvjhqnay86t0p" path="res://Qte_arrows/Red/QTE_LEFT_red.png" id="3_5kcm5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_njtxy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_myhua")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_5kcm5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_gv0qj")
+}],
+"loop": true,
+"name": &"State",
+"speed": 5.0
+}]
+
+[node name="left_arrow" type="AnimatedSprite2D"]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_njtxy")
+animation = &"State"

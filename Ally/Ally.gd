@@ -2,10 +2,12 @@ class_name Ally
 extends CharacterBody2D
 
 const UnitType = Utils.UnitType
+const AllyType = Utils.AllyType
 
 var unit_type: UnitType = UnitType.ALLY
+var ally_type: String
 
-var speed: int = 100
+var speed: int = 240
 var attack_power: int = 30
 
 var attack_interval: float = 1.0
@@ -19,8 +21,8 @@ var death_animation_started: bool = false
 var time_till_next_attack: float = 0
 var target: CharacterBody2D = null
 
-var max_distance_to_player: int = 150
-var min_distance_to_player: int = 50
+var max_distance_to_player: int = 220
+var min_distance_to_player: int = 120
 
 var max_offset = (max_distance_to_player - min_distance_to_player) / 2
 
@@ -34,6 +36,18 @@ var rng = RandomNumberGenerator.new()
 @onready var animate: AnimationPlayer = get_node("AnimationPlayer")
 @onready var player: CharacterBody2D = $"../Druid"
 
+func _init():
+	var ally_types = [
+		"DPS", "TANK"
+	]
+	print("Hello World")
+	var ally_type_index = randi_range(0, 1)
+	ally_type = ally_types[ally_type_index]
+	if ally_type == "DPS":
+		pass
+	elif ally_type == "TANK":
+		pass
+	
 
 func _physics_process(delta):
 	if not is_dying:
@@ -41,6 +55,9 @@ func _physics_process(delta):
 	
 	handle_animation()
 
+func combine_animation_name(anim_name):
+	#print(ally_type + "_" + anim_name)
+	return ally_type + "_" + anim_name
 
 func handle_movement(delta):
 	if health <= 0:
@@ -71,7 +88,7 @@ func handle_movement(delta):
 			time_till_next_attack = attack_interval
 			velocity = Vector2.ZERO
 			
-			animate.play("Attack")
+			animate.play(combine_animation_name("Attack"))
 			target.health -= attack_power
 			target.target = self
 			
@@ -149,9 +166,9 @@ func has_new_closest_enemy_target():
 
 func handle_animation() -> void:
 	if is_dying:
-		if animate.current_animation != "Death" and not death_animation_started:
+		if animate.current_animation != combine_animation_name("Death") and not death_animation_started:
 			death_animation_started = true
-			animate.play("Death")
+			animate.play(combine_animation_name("Death"))
 		
 		if animate.is_playing():
 			return
@@ -164,10 +181,10 @@ func handle_animation() -> void:
 	elif velocity.x > 0:
 		get_node("AnimatedSprite2D").flip_h = false
 	
-	if animate.current_animation != "Attack" and velocity != Vector2.ZERO:
-		animate.play("Run")
-	elif animate.current_animation != "Attack":
-		animate.play("Idle")
+	if animate.current_animation != combine_animation_name("Attack") and velocity != Vector2.ZERO:
+		animate.play(combine_animation_name("Run"))
+	elif animate.current_animation != combine_animation_name("Attack"):
+		animate.play(combine_animation_name("Idle"))
 	
 
 func _on_target_area_body_entered(body):
