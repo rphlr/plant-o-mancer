@@ -1,13 +1,13 @@
 [gd_scene load_steps=10 format=3 uid="uid://o0qumori6aa2"]
 
 [ext_resource type="Script" path="res://Game/world.gd" id="1_2h7gc"]
-[ext_resource type="PackedScene" uid="uid://l6rxw8pg53wu" path="res://Player/player_druid.tscn" id="2_qoltr"]
+[ext_resource type="PackedScene" uid="uid://l6rxw8pg53wu" path="res://Player_OLD/player_druid.tscn" id="2_qoltr"]
 [ext_resource type="Script" path="res://Game/ParallaxBackground.gd" id="3_kn5rn"]
 [ext_resource type="Texture2D" uid="uid://710621y1w1fx" path="res://Background/bg_color.png" id="4_pbxiw"]
 [ext_resource type="Texture2D" uid="uid://bmhp1jcf3is4s" path="res://Background/tree.png" id="5_dhbys"]
 [ext_resource type="Texture2D" uid="uid://b6qnq3tw6jcd6" path="res://Background/bush.png" id="6_xwreu"]
 [ext_resource type="Texture2D" uid="uid://fd8h1w57yrgc" path="res://Background/rock.png" id="7_i32rd"]
-[ext_resource type="PackedScene" uid="uid://dheke6hrb8thj" path="res://Flower/Flower.tscn" id="8_rd4fd"]
+[ext_resource type="PackedScene" uid="uid://dheke6hrb8thj" path="res://Main_menu/scenes/flower.tscn" id="8_rd4fd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eqoak"]
 size = Vector2(88.7978, 660.915)
@@ -121,3 +121,7 @@ position = Vector2(472, 216)
 
 [node name="flower5" parent="." instance=ExtResource("8_rd4fd")]
 position = Vector2(664, 464)
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Allies" type="Node" parent="."]

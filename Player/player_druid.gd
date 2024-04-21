@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+var unit_type = Utils.UnitType.PLAYER
+
 var SPEED = 250
 var health: int = 50
 
