@@ -1,0 +1,13 @@
+res://Main_menu/scenes/main_menu.tscn
+res://assets/MinimalUI/MinimalUI.tres
+res://Main_menu/scenes/action_button.tscn
+res://Main_menu/scenes/audio_manager.tscn
+res://Main_menu/scenes/parallax_background.tscn
+res://Main_menu/scenes/sample_game.tscn
+res://Main_menu/scenes/settings.tscn
+res://Main_menu/scenes/utilities.tscn
+res://Main_menu/scenes/menu_idle.tscn
+res://Main_menu/scenes/flower.tscn
+res://Game/game.tscn
+res://Game/world.gd
+res://Main_menu/scripts/settings.gd

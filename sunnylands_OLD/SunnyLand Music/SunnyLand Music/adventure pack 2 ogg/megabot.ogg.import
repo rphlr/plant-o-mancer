@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dgvqe36q3oy3h"
+path="res://.godot/imported/megabot.ogg-683870ee1e564c1176a1f5a1fa091c86.oggvorbisstr"
+
+[deps]
+
+source_file="res://sunnylands_OLD/SunnyLand Music/SunnyLand Music/adventure pack 2 ogg/megabot.ogg"
+dest_files=["res://.godot/imported/megabot.ogg-683870ee1e564c1176a1f5a1fa091c86.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
