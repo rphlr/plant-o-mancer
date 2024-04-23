@@ -1,0 +1,225 @@
+[gd_scene load_steps=7 format=3 uid="uid://603k3vy4p3f1"]
+
+[ext_resource type="Theme" uid="uid://cb2tqos08yhkd" path="res://assets/MinimalUI_OLD/MinimalUI.tres" id="1_kjvt1"]
+[ext_resource type="FontFile" uid="uid://dsisvfrdgqau" path="res://assets/Cubic_11_1.013_R.ttf" id="2_wvgxw"]
+[ext_resource type="Script" path="res://Main_menu/scripts/settings.gd" id="3_5j0kw"]
+[ext_resource type="Texture2D" uid="uid://bpi5csehithlm" path="res://assets/images/Back.png" id="5_kig6x"]
+[ext_resource type="Script" path="res://Main_menu/scripts/audio.gd" id="6_acy8c"]
+[ext_resource type="PackedScene" uid="uid://v37pld2ul4n6" path="res://Main_menu/scenes/action_button.tscn" id="7_7roas"]
+
+[node name="Settings" type="TabContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_kjvt1")
+theme_override_constants/side_margin = 25
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("2_wvgxw")
+theme_override_font_sizes/font_size = 50
+script = ExtResource("3_5j0kw")
+
+[node name="Audio" type="TabBar" parent="."]
+layout_mode = 2
+focus_neighbor_right = NodePath("../Controls")
+theme = ExtResource("1_kjvt1")
+theme_override_font_sizes/font_size = 20
+script = ExtResource("6_acy8c")
+
+[node name="Back" type="Button" parent="Audio"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -119.0
+offset_top = -54.0
+offset_right = -19.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+focus_neighbor_top = NodePath("../HBoxContainer/VBoxContainer2/SoundEffects")
+theme = ExtResource("1_kjvt1")
+theme_override_font_sizes/font_size = 24
+icon = ExtResource("5_kig6x")
+icon_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Audio"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -252.5
+offset_top = -104.0
+offset_right = 251.5
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Audio/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Music" type="Label" parent="Audio/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
+focus_mode = 1
+theme_override_font_sizes/font_size = 30
+text = "Music"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SoundEffects" type="Label" parent="Audio/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
+focus_mode = 1
+theme_override_font_sizes/font_size = 30
+text = "Sound Effects"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Audio/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="Music" type="HSlider" parent="Audio/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+focus_neighbor_bottom = NodePath("../SoundEffects")
+max_value = 1.0
+step = 0.05
+
+[node name="SoundEffects" type="HSlider" parent="Audio/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+focus_neighbor_top = NodePath("../Music")
+focus_neighbor_bottom = NodePath("../../../Back")
+max_value = 1.0
+step = 0.05
+
+[node name="Controls" type="TabBar" parent="."]
+visible = false
+layout_mode = 2
+focus_neighbor_left = NodePath("../Audio")
+focus_neighbor_bottom = NodePath("HBoxContainer/VBoxContainer2/Up")
+theme = ExtResource("1_kjvt1")
+theme_override_font_sizes/font_size = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Controls"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -105.0
+offset_top = -81.0
+offset_right = 114.0
+offset_bottom = 83.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Controls/HBoxContainer"]
+layout_mode = 2
+
+[node name="Up" type="Label" parent="Controls/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 30
+text = "Up
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Down" type="Label" parent="Controls/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 30
+text = "Down"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Left" type="Label" parent="Controls/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 30
+text = "Left"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Right" type="Label" parent="Controls/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 30
+text = "Right"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Controls/HBoxContainer"]
+layout_mode = 2
+
+[node name="Up" parent="Controls/HBoxContainer/VBoxContainer2" instance=ExtResource("7_7roas")]
+layout_mode = 2
+focus_neighbor_top = NodePath("../../..")
+focus_neighbor_bottom = NodePath("../Down")
+
+[node name="Down" parent="Controls/HBoxContainer/VBoxContainer2" instance=ExtResource("7_7roas")]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Up")
+focus_neighbor_bottom = NodePath("../Left")
+action = "Down"
+
+[node name="Left" parent="Controls/HBoxContainer/VBoxContainer2" instance=ExtResource("7_7roas")]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Down")
+focus_neighbor_bottom = NodePath("../Right")
+action = "Left"
+
+[node name="Right" parent="Controls/HBoxContainer/VBoxContainer2" instance=ExtResource("7_7roas")]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Left")
+focus_neighbor_bottom = NodePath("../../../Back")
+action = "Right"
+
+[node name="Back" type="Button" parent="Controls"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -119.0
+offset_top = -54.0
+offset_right = -19.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+focus_neighbor_top = NodePath("../HBoxContainer/VBoxContainer2/Right")
+focus_neighbor_bottom = NodePath("../HBoxContainer/VBoxContainer2/Up")
+theme = ExtResource("1_kjvt1")
+theme_override_font_sizes/font_size = 24
+icon = ExtResource("5_kig6x")
+icon_alignment = 1
+
+[connection signal="pressed" from="Audio/Back" to="." method="_on_back_pressed"]
+[connection signal="value_changed" from="Audio/HBoxContainer/VBoxContainer2/Music" to="Audio" method="_on_music_value_changed"]
+[connection signal="value_changed" from="Audio/HBoxContainer/VBoxContainer2/SoundEffects" to="Audio" method="_on_sound_effects_value_changed"]
+[connection signal="pressed" from="Controls/Back" to="." method="_on_back_pressed"]

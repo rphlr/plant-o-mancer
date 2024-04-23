@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://he74kigi7n85"]
+
+[ext_resource type="Texture2D" uid="uid://ctl7ssu3f1atn" path="res://sunnylands_OLD/Sunny Land Collection Files/Sunny Land Collection Files/Packs/Sunnyland/sprites/frog/idle/frog-idle-1.png" id="1_qoeem"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xie8t"]
+
+[node name="Ally" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_xie8t")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_qoeem")

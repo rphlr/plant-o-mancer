@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxdruw8a4ont2"]
+
+[ext_resource type="Texture2D" uid="uid://ua8gm87og1vf" path="res://DeathScreen/Dead.png" id="1_s8atg"]
+[ext_resource type="Script" path="res://DeathScreen/dead_screen.gd" id="1_t3vh3"]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(136, 136)
+script = ExtResource("1_t3vh3")
+
+[node name="Image" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(472, 248)
+scale = Vector2(0.5, 0.474074)
+texture = ExtResource("1_s8atg")
+
+[node name="VBoxContainer" type="BoxContainer" parent="Image"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -960.0
+offset_top = -36.0
+offset_right = -960.0
+offset_bottom = -552.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1

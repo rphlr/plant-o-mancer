@@ -1,0 +1,184 @@
+[gd_scene load_steps=13 format=3 uid="uid://cn4sis57vp3si"]
+
+[ext_resource type="Script" path="res://Main_menu/scripts/sample_game.gd" id="1_yj5od"]
+[ext_resource type="PackedScene" uid="uid://bpbe1dec8fp6j" path="res://Player/player_druid.tscn" id="2_lsr4e"]
+[ext_resource type="Script" path="res://Game/ParallaxBackground.gd" id="3_lf2rl"]
+[ext_resource type="Theme" uid="uid://cb2tqos08yhkd" path="res://assets/MinimalUI_OLD/MinimalUI.tres" id="3_rdppm"]
+[ext_resource type="Texture2D" uid="uid://710621y1w1fx" path="res://Background/bg_color.png" id="4_524ye"]
+[ext_resource type="PackedScene" uid="uid://603k3vy4p3f1" path="res://Main_menu/scenes/settings.tscn" id="4_lkdc0"]
+[ext_resource type="Texture2D" uid="uid://bmhp1jcf3is4s" path="res://Background/tree.png" id="5_n3bvm"]
+[ext_resource type="Texture2D" uid="uid://b6qnq3tw6jcd6" path="res://Background/bush.png" id="6_16tsk"]
+[ext_resource type="Texture2D" uid="uid://fd8h1w57yrgc" path="res://Background/rock.png" id="7_osyvt"]
+[ext_resource type="PackedScene" uid="uid://dheke6hrb8thj" path="res://Main_menu/scenes/flower.tscn" id="8_0htpt"]
+[ext_resource type="PackedScene" uid="uid://dxdruw8a4ont2" path="res://DeathScreen/dead_screen.tscn" id="11_uy7pt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lmyqg"]
+size = Vector2(88.7978, 660.915)
+
+[node name="SampleGame" type="Node2D"]
+script = ExtResource("1_yj5od")
+
+[node name="Druid" parent="." instance=ExtResource("2_lsr4e")]
+position = Vector2(512, 360)
+
+[node name="BG" type="ParallaxBackground" parent="."]
+scroll_offset = Vector2(0, -130.075)
+script = ExtResource("3_lf2rl")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="BG"]
+position = Vector2(8, -8)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="BgColor" type="Sprite2D" parent="BG/ParallaxLayer"]
+position = Vector2(-8, 8)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_524ye")
+centered = false
+
+[node name="Tree" type="Sprite2D" parent="BG/ParallaxLayer"]
+position = Vector2(696, 240)
+texture = ExtResource("5_n3bvm")
+
+[node name="Bush" type="Sprite2D" parent="BG/ParallaxLayer"]
+position = Vector2(304, 416)
+texture = ExtResource("6_16tsk")
+
+[node name="Tree2" type="Sprite2D" parent="BG/ParallaxLayer"]
+position = Vector2(280, 160)
+texture = ExtResource("5_n3bvm")
+
+[node name="Bush2" type="Sprite2D" parent="BG/ParallaxLayer"]
+position = Vector2(704, 448)
+texture = ExtResource("6_16tsk")
+
+[node name="Rock" type="Sprite2D" parent="BG/ParallaxLayer"]
+position = Vector2(480, 88)
+texture = ExtResource("7_osyvt")
+
+[node name="Rock2" type="Sprite2D" parent="BG/ParallaxLayer"]
+position = Vector2(152, 488)
+texture = ExtResource("7_osyvt")
+
+[node name="Bush3" type="Sprite2D" parent="BG/ParallaxLayer"]
+position = Vector2(536, 432)
+texture = ExtResource("6_16tsk")
+
+[node name="Tree3" type="Sprite2D" parent="BG/ParallaxLayer"]
+position = Vector2(944, 416)
+texture = ExtResource("5_n3bvm")
+
+[node name="Tree4" type="Sprite2D" parent="BG/ParallaxLayer"]
+position = Vector2(864, 152)
+texture = ExtResource("5_n3bvm")
+
+[node name="Tree5" type="Sprite2D" parent="BG/ParallaxLayer"]
+position = Vector2(232, 568)
+texture = ExtResource("5_n3bvm")
+
+[node name="Tree6" type="Sprite2D" parent="BG/ParallaxLayer"]
+position = Vector2(680, 288)
+texture = ExtResource("5_n3bvm")
+
+[node name="Rock3" type="Sprite2D" parent="BG/ParallaxLayer"]
+position = Vector2(592, 144)
+texture = ExtResource("7_osyvt")
+
+[node name="Rock4" type="Sprite2D" parent="BG/ParallaxLayer"]
+position = Vector2(600, 160)
+texture = ExtResource("7_osyvt")
+
+[node name="Rock5" type="Sprite2D" parent="BG/ParallaxLayer"]
+position = Vector2(536, 136)
+texture = ExtResource("7_osyvt")
+
+[node name="Bush4" type="Sprite2D" parent="BG/ParallaxLayer"]
+position = Vector2(544, 608)
+texture = ExtResource("6_16tsk")
+
+[node name="Bush5" type="Sprite2D" parent="BG/ParallaxLayer"]
+position = Vector2(552, 568)
+texture = ExtResource("6_16tsk")
+
+[node name="Bush6" type="Sprite2D" parent="BG/ParallaxLayer"]
+position = Vector2(736, 456)
+texture = ExtResource("6_16tsk")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+scale = Vector2(1.10254, 0.964213)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-43.3189, 336.025)
+scale = Vector2(0.975676, 1.01685)
+shape = SubResource("RectangleShape2D_lmyqg")
+
+[node name="flower" parent="." instance=ExtResource("8_0htpt")]
+position = Vector2(840, 320)
+
+[node name="flower2" parent="." instance=ExtResource("8_0htpt")]
+position = Vector2(336, 296)
+
+[node name="flower3" parent="." instance=ExtResource("8_0htpt")]
+position = Vector2(424, 552)
+
+[node name="flower4" parent="." instance=ExtResource("8_0htpt")]
+position = Vector2(472, 216)
+
+[node name="flower5" parent="." instance=ExtResource("8_0htpt")]
+position = Vector2(664, 464)
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Allies" type="Node" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_rdppm")
+
+[node name="PauseMenu" type="VBoxContainer" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -20.0
+offset_right = 50.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Resume" type="Button" parent="CanvasLayer/Panel/PauseMenu"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../Option")
+theme = ExtResource("3_rdppm")
+theme_override_font_sizes/font_size = 24
+text = "Resume"
+
+[node name="Option" type="Button" parent="CanvasLayer/Panel/PauseMenu"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+focus_neighbor_top = NodePath("../Resume")
+theme = ExtResource("3_rdppm")
+theme_override_font_sizes/font_size = 24
+text = "Option"
+
+[node name="Settings" parent="CanvasLayer/Panel" node_paths=PackedStringArray("pre_scene") instance=ExtResource("4_lkdc0")]
+visible = false
+layout_mode = 1
+pre_scene = NodePath("../../..")
+
+[node name="DeadScreen" parent="." instance=ExtResource("11_uy7pt")]
+visible = false
+position = Vector2(104.205, 34.7792)
+
+[connection signal="pressed" from="CanvasLayer/Panel/PauseMenu/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/PauseMenu/Option" to="." method="_on_option_pressed"]
